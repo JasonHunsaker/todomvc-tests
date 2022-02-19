@@ -1,10 +1,15 @@
 /// <reference types="cypress" />
 
-describe('todo actions', () => {
-    beforeEach(() => {
-        cy.visit('http://todomvc-app-for-testing.surge.sh/?')
+import {TodoPage} from "../page-objects/todo-page";
 
-        cy.get('.new-todo', {timeout: 6000}).type("Clean room{enter}")
+describe('todo actions', () => {
+    const todoPage = new TodoPage ()
+    
+    beforeEach(() => {
+       todoPage.navigate()
+
+
+       todoPage.addTodo('Clean room')
 })
     it('should add a new todo to the list', () => {
        
